@@ -182,9 +182,9 @@ class POSmachine:
         with open(self.invoice_file,"w") as writer:
             writer.write("{:>4} {:32} {:>12} {:>8} {:>12}\n".format("ID","Product","Price","Quantity","Total"))
             for row in self.invoice:
-                writer.write("{:>4d} {:32s} {:>12.2f} {:>8d} {:>12.2f}\n".format(int(row["ID"]),row["Product"],float(row["Price"]),int(row["Quantity"]),float(row["Total"])))
+                writer.write("{:>4d} {:32s} {:>12,.2f} {:>8,d} {:>12,.2f}\n".format(int(row["ID"]),row["Product"],float(row["Price"]),int(row["Quantity"]),float(row["Total"])))
         with open(self.invoice_file,"a") as writer:
-            writer.write(f"                                               Grand Total: {grand_total:>12.2f}\n")
+            writer.write(f"                                               Grand Total: {grand_total:>12,.2f}\n")
 
 
 p = POSmachine()
